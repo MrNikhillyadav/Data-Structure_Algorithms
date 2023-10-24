@@ -1,40 +1,33 @@
-
-// **Approach:**
+ **Approach:**
 
 // 1. Start with a linear scan through the array to find the first element that is smaller than the previous element. This is the point where the rotation starts.
-
 // 2. If no such element is found (i.e., the array is sorted in non-decreasing order), return true.
-
 // 3. If you find an element that breaks the non-decreasing order, check if the remaining elements in the array are in non-decreasing order. If they are, return true. Otherwise, return false.
-
 // This approach works because in a rotated sorted array, there will be a single point where the non-decreasing order breaks, and the rest of the elements will also be in non-decreasing order.
 
-// I hope this concise approach helps you remember the key points for solving this problem.
 
+// CONDITIONS :
+//1. If more than one element is out of place, it's not a valid rotation.
+//2. If only one element is out of place, and if it's the *first element*, it's a valid rotation.
+//3. If there's zero or one element out of place, it's a valid rotation.
 
 class Solution {
 public:
     bool check(vector<int>& nums) {
 
-       // Count how many elements are out of place (not in non-decreasing order{ascending}).
+     // Count how many elements are out of place (not in non-decreasing order{ascending}).
         int count = 0;
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i - 1] > nums[i]) {
                 count++;
             }
         }
-
         // Handle the circular check by comparing the first and last elements.
         if (nums[0] < nums[nums.size() - 1]) {   // Read condition 2 below.
             count++;
         }
-
         return count <= 1;
     }
 };
 
-// CONDITIONS :
-//1. If more than one element is out of place, it's not a valid rotation.
-//2. If only one element is out of place, and if it's the *first element*, it's a valid rotation.
-//3. If there's zero or one element out of place, it's a valid rotation.
 
