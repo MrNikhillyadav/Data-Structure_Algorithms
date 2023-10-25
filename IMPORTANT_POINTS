@@ -1,0 +1,87 @@
++++++++++++++++++++++++++ IMPORTANT RESULTS +++++++++++++++++++++++++++++++++++++++
+
+1.             sort(arr,arr+n);
+    can directly sort any given array.
+
+
+2.  min() & max() function can directly find min and max values.
+
+                int i;
+                for(i=0;i<n;i++)                              
+                {
+                    small=min(small,arr[i]);
+                    large=max(large,arr[i]);
+                }  
+
+
+3. to find length of an array:
+
+                i. sizeof(arr)
+                ii. arr.size()
+                iii. arr.length;
+
+------------------------------------------------------------------------------------------
+ 4. Create a dynamic vector using the range constructor.
+
+            The range constructor takes two iterators (begin and end) as arguments,
+            and it constructs the vector using the elements in the range specified by the iterators.
+
+                    vector<int>* head = new vector<int>(arr, arr + arrSize);
+
+        // Access and print the elements of the vector
+
+                    for (int i = 0; i < head->size(); i++) {
+                        cout << (*head)[i] << " ";
+                    }
+            
+5.  Declaration and initialization of vector array of size k with default value 0
+                    vector<int> vectorArray(k, 0);
+
+
+6. ----------------SYNTAX----------------------------------------------------------
+                    for (int num : nums) {
+                            // ----> Code to be executed for each 'num' in 'nums'
+                }
+
+7.   Two important properties of 'XOR' are the following:
+
+                XOR of two same numbers is always 0 i.e. a ^ a = 0.    ←--------Property 1.
+                XOR of a number with 0 will result in the number itself i.e. 0 ^ a = a.    ←-------Property 2
+
+8. Number of subarrays = (n * (n + 1)) / 2.
+                Here, "n" represents the length of the array.
+
+
+(9*)______N-O-T-E__________ P.A.T.T.E.R.N.  ____________________________________    
+       
+                maxLen = max(maxLen, right - left + 1);
+                maxCount = max(maxCount,count);
+
+       LEETCODE 485. Max Consecutive Ones           |  // Notice: Max. & Longest use hua h. That's why hum max() use kr rhe hai.
+       CODINGNINJAS. Longest Subarray With Sum K .  |
+
+       Explaination: Ye similar max. find krne ka pattern use hua h uper k dono ques me.
+                    Aisa tab use hua h jab [] k ander loop hum break krke phir count restart (reset = 0) kr rhe h. e.g. [1,1,0,1,1,1]
+---------------------------___________________________________------------------------------------------------------------------------
+
+10. Topic: Trees. 
+                            Vector as a List:
+
+            ~ Vector is like a dynamic list that can grow or shrink.
+                Each element in a vector holds data, similar to names on a list.
+
+                            Pointer as a Name:
+
+            ~ Pointer is like a tag that points to a specific data in memory.
+                It helps access or manipulate the data it points to.
+
+                            In Tree-Building Code:
+
+            ~ children vector in TreeNode holds pointers to child nodes.
+                Each pointer is like a tag leading to a node's memory location.
+
+                root->children.push_back(child); adds a pointer to a child node in the parent's vector.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+        
+
