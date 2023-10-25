@@ -1,0 +1,25 @@
+// The code uses an iterative approach.
+
+// It efficiently deletes a node in a singly-linked list.
+// It copies the value & pointer from the next node to the current node.
+// Tt"skips" the next node in the list, achieving node deletion.
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node -> val = node-> next -> val;
+        node -> next = node->next->next;
+        //skipped the next element and pointing to the next to next element;
+    }
+};
