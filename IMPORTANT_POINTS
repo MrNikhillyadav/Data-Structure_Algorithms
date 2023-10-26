@@ -52,7 +52,7 @@
                 Here, "n" represents the length of the array.
 
 
-(9*)______N-O-T-E__________ P.A.T.T.E.R.N.  ____________________________________    
+(9*)-----------N-O-T-E----------- P.A.T.T.E.R.N. -------------------------------------------------------   
        
                 maxLen = max(maxLen, right - left + 1);
                 maxCount = max(maxCount,count);
@@ -62,7 +62,7 @@
 
        Explaination: Ye similar max. find krne ka pattern use hua h uper k dono ques me.
                     Aisa tab use hua h jab [] k ander loop hum break krke phir count restart (reset = 0) kr rhe h. e.g. [1,1,0,1,1,1]
----------------------------___________________________________------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 10. Topic: Trees. 
                             Vector as a List:
@@ -84,4 +84,18 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------
         
+11. map<int, int> freq;: Here, a map named freq is defined.
+    The map is used to store the elements of the merged arrays as keys and their frequencies as values.
+    The key-value pairs in the map will automatically be sorted by the keys.
+    freq = {
+    1: 1,
+    2: 2,
+    3: 2,
+    4: 2,
+    5: 1,
+    6: 2,
+    7: 1
+}
 
+-----------------------------------------------------------------------------------------------------------------------------------
+12. 
