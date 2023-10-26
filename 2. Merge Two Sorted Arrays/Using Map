@@ -1,0 +1,27 @@
+// Solution 2: Using Map;         Test case passed : 10/11 (below code)
+// Time complexity: O(NlogN); 
+
+#include <bits/stdc++.h>
+vector < int > sortedArray(vector < int > a, vector < int > b) {
+    map<int, int> freq; 
+    vector<int> Union;  
+
+    // Count the frequency of elements in arr1 and store it in the map.
+    for (auto x : a)
+        freq[x]++;
+
+    // Count the frequency of elements in arr2 and update the map.
+    for (auto y : b)
+        freq[y]++;
+
+    // Iterate through the map.
+    for (auto z : freq) {
+
+        // 'z' represents a key-value pair in the map.
+        // 'z.first' is the key (element).
+        // 'z.second' is the value (frequency).
+
+        Union.push_back(z.first);
+    }
+    return Union; 
+}
