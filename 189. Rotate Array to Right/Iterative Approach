@@ -1,0 +1,21 @@
+// take a new vector array 'temp' to return result.
+// arr[] ka 0th element, temp k (i+k)th index pr aayega. where (k = rotate the arr[] by k).
+// (i+k) % arr.size() == k , always.
+// e.g. k=3, arr[0] element, temp[3] pr jayega. 
+
+class Solution {
+public:
+    void rotate(vector<int>& arr, int k) {
+        int n = arr.size();
+        vector<int> temp(n);
+
+        for(int i =0; i< n; i++){
+            temp[(i+k)% n] = arr[i];
+        }
+        arr= temp;
+
+        // Note: !!! (i+k)% nums.size() will always give K 
+       
+        
+    }
+};
