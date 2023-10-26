@@ -1,0 +1,74 @@
+// Approach 1: temp array leke bhi kr skte h.
+// (But type void h to usko return ni kr skte) so, have to copy back to original array.
+// Note: Return type vector<int> hota to , hum pehle hi element ko 0 assign nahi krenge.(See bottom code)
+// Approach 2: same array me swap krke bhi skte h.
+
+//  Approach 1:
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int k = nums.size();
+        vector<int> arr(k,0);
+        int j=0;
+       
+            for(int i=0; i< nums.size(); i++){
+                if(nums[i] != 0){
+                    arr[j] = nums[i];//Note:Aise copy kr skte h,kyuki return type vector nahi h.
+                    j++;
+                }
+            }
+
+            // copying back to original array.
+            for(int i=0; i< k; i++){
+                nums[i] = arr[i];
+        }
+
+    }
+};
+
+//  Approach 2:
+
+// class Solution {
+// public:
+//     void moveZeroes(vector<int>& nums) {
+//         int n = nums.size();
+//         int j = 0; // Index to place non-zero elements
+
+//         // Traverse the array
+//         for (int i = 0; i < n; i++) {
+//             if (nums[i] != 0) {
+//                 swap(nums[i], nums[j]); // Swap non-zero element to the correct position
+//                 j++;
+//             }
+//         }
+//     }
+// };
+
+
+//When return type is not void, its vector<int>:
+
+// class Solution {
+// public:
+//     vector<int> moveZeroes(vector<int>& nums) {
+//         int n = nums.size();
+//         vector<int> arr; // Create a new vector to store non-zero elements
+
+//         // Traverse the 'nums' vector
+//         for (int i = 0; i < n; i++) {
+//             if (nums[i] != 0) {
+//                 arr.push_back(nums[i]); // Add non-zero elements to 'arr'
+//             }
+//         }
+
+//         // Fill the remaining space in 'arr' with zeros
+
+//         int zerosToAdd = n - arr.size();
+//         for (int i = 0; i < zerosToAdd; i++) {
+//             arr.push_back(0);
+//         }
+
+//         return arr;
+//     }
+// };
+
