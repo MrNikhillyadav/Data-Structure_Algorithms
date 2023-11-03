@@ -1,0 +1,24 @@
+//  USING MAPPING
+//  Note: Best ques to understand Mapping syntax till now.
+//   y is key-value pair where :
+//                y.first = key i.e. (index) jo ki khud element hota h given array ka. 
+//                y.second = value i.e.(frequency) hoti h given arrays k elements ki.
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int n = nums.size();
+        map<int,int> temp;
+        for(auto x : nums){
+            temp[x]++;
+        }
+
+        for(auto y : temp){
+            if( y.second == 1){     
+                return y.first;
+            }
+
+        }
+        return -1;
+    }
+};
