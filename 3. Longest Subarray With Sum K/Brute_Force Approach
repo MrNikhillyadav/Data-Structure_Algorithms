@@ -1,0 +1,22 @@
+//  Brute force approach (time complexity: O(N^2))        10/11 Test case passed.
+
+int longestSubarrayWithSumK(vector<int> a, long long k) {
+
+    int n = a.size();
+    int  maxlen = 0;
+    
+    for(int i=0; i< n; i++){
+        long sum =0;
+        for(int j=i; j<n;j++){
+
+            sum += a[j];
+            if(sum == k){
+                maxlen = max(maxlen,j-i+1);
+
+            }
+        }
+
+    }
+    return maxlen;  
+
+}
