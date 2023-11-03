@@ -1,0 +1,17 @@
+// optimal approach
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int totalsum = ((n)* (n+1))/2;
+
+        int givensum = 0;
+        for(auto n : nums){
+            givensum += n;
+        }
+
+        int result = totalsum - givensum;
+        return result;
+    }
+};
