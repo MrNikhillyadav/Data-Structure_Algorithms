@@ -1,0 +1,36 @@
+// **Approach:**
+
+// We will take 4 variables.
+// 1. Initialize `Largest` and `secLargest` to the minimum possible value and `smallest` and `secSmallest` to the maximum possible value.
+// 2. Find the largest and second-largest elements in one pass.
+// 3. Find the smallest and second-smallest elements in another pass.
+// 4. Return the second-largest and second-smallest elements as a 'vector'.
+
+
+vector<int> getSecondOrderElements(int n, vector<int> arr) {
+    int Largest, secLargest ;
+    Largest= secLargest =INT_MIN;
+
+    for (int i = 0; i < n; i++) {
+      if (arr[i] > Largest){
+          secLargest = Largest;
+          Largest = arr[i];
+      }else if (arr[i] < Largest && arr[i] > secLargest ){
+          secLargest = arr[i];
+      }
+    }
+    int smallest, secSmallest ;
+     smallest= secSmallest = INT_MAX;
+
+    for(int j=0; j<n; j++){  
+        if(arr[j] < smallest ){
+            secSmallest = smallest; //7
+            smallest = arr[j]; //4
+        }else if (arr[j] > smallest && arr[j] < secSmallest){
+            secSmallest = arr[j];//5
+        }
+    }
+    //important syntax
+    vector<int> result = {secLargest, secSmallest};
+    return result;
+}
