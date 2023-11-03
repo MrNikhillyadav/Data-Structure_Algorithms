@@ -1,0 +1,24 @@
+// Better Approach (using Hashing):
+
+// Points to Remember:
+//         vector<int> Hash(N + 1, 0);
+//         i.e.Hash is nothing but a Dynamic Vector or Dynamic array pointer
+        
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int N = nums.size();
+
+        vector<int> Hash(N + 1, 0);
+        for(auto x : nums){
+            Hash[x]++;
+        }
+
+        for(int y=0; y<=N; y++){
+            if(Hash[y] == 0){
+                return y;
+            }
+        }  
+    return -1;
+    }
+};
