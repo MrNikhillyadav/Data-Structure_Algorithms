@@ -1,0 +1,40 @@
+// Note for me :
+// 1. There are 3 approaches to this problem.(Brute-force, better, optimal)
+// 2. Better & optimal approach depends on given array.
+// 3. Case : 1 - for positives & negatives array elements, using Hashing is the Optimal Approach.
+// 4. Case : 2 - for positives & zeroes, Double-pointer is the optimal approach and hasing would then be the better approach.
+
+//  Better- Approach using Hashmap :(*only when there are only positives and negatives elements)
+//  **Optimal-Approach if array contains positives and zeroes not negatives.**
+
+//  The hash function takes the key as input and returns an index in the array,
+//  which is used to access the value associated with that key.
+
+#include <bits/stdc++.h> 
+int getLongestSubarray(vector<int>& nums, int k){
+    
+    int sum =0;
+    int maxlen=0;
+    map<int,int> preSum ;
+
+    for (int i = 0; i < nums.size(); i++) {
+      sum += nums[i];
+
+      if (sum == k) {
+        maxlen = max(maxlen, i + 1);
+      }
+
+      int rem = sum - k; 
+      if(preSum.find(rem) != preSum.end()){
+        // rem is key, which will give its index in preSum map array.
+        int len = i - preSum[rem];
+        maxlen = max(maxlen, len);
+        
+      }
+
+      if (preSum.find(sum) == preSum.end()) {
+            preSum[sum] = i;
+        }
+    }
+    return maxlen;
+}
