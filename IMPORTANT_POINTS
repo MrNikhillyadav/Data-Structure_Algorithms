@@ -1,7 +1,12 @@
 +++++++++++++++++++++++++ IMPORTANT RESULTS +++++++++++++++++++++++++++++++++++++++
 
-1.             sort(arr,arr+n);
-    can directly sort any given array.
+1.             sort(arr,arr+n); or
+                int findContentChildren(vector<int>& g, vector<int>& s)
+                    {
+                        sort(g.begin(),g.end());
+                        sort(s.begin(),s.end());
+                    }
+                can directly sort any given vector array.
 
 
 2.  min() & max() function can directly find min and max values.
