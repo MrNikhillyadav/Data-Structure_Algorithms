@@ -2,12 +2,14 @@
 using namespace std;
 
 void printString(string s){
+
     for(int i =0; i < s.size(); i++){
         cout << s[i]  ;
     }
 }
 
 void printInteger(int arr[], int size){
+    
     for(int i =0; i < size; i++){
         cout << arr[i]  ;
     }
