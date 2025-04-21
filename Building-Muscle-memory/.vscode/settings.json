@@ -3,6 +3,7 @@
         "*.ejs": "html",
         "array": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "hash_map": "cpp"
     }
 }
