@@ -109,13 +109,81 @@ void deleteAtTail(ListNode* head){
     delete tail;
 }
 
-int main(){
+int ComputeIterativeLength(ListNode* head){
+    if(head == NULL){
+        return 0;
+    }
+    int i = 0;
+    ListNode* temp = head;
 
-    //create a node class
-    // create a list of node 1->2->3
-    // insert 0 at head
-    // insert 4 at the tail
-    // insert 25 at index 1
+    while(temp != NULL){
+        i++;
+        temp = temp -> next;
+    }
+
+    return i;
+
+}
+
+int ComputeRecursiveLength(ListNode* head){
+    if (head == NULL){
+        return 0;
+    }
+
+    int A = ComputeRecursiveLength(head -> next);
+    return A + 1;
+}
+
+bool SearchLinkedListIteratively(ListNode* head, int target){
+    ListNode* temp = head;
+
+    if(head == NULL){
+        return false;
+    }
+
+    while(temp != NULL){
+        if(temp -> data == target){
+           return true;
+        }
+        temp = temp -> next;
+    }
+
+    return false;
+}
+
+bool SearchLinkedListRecursively(ListNode* head, int target){
+    if(head == NULL){
+        return false;
+    }
+
+    if( head -> data == target){
+        return true;
+    }else {
+        SearchLinkedListRecursively(head -> next, target);
+    }
+}
+
+ListNode* ReverseLinkedListRecursive(ListNode* head){`
+    if(head == NULL){
+        return head;
+    }
+
+    if(head -> next == NULL){
+        return head;
+    }
+
+    ListNode* revHead = ReverseLinkedListRecursive(head -> next);
+    head -> next -> next = head;
+    head -> next = NULL;
+
+    return revHead;
+    
+}
+
+int main(){
+    // compute length of ll iteratively and recursively
+    // search the linkedlist iteratively or recursively
+    // reverse the linkedlist iteratively or recursively
 
     ListNode* head = new ListNode(1);
     head -> next =  new ListNode(2);
@@ -125,12 +193,18 @@ int main(){
     insertAtTail(head,4);
     insertAtIndex(head, 1, 25);
 
-    // printListNode(head);
     // deleteAtHead(head);
-    deleteAtTail(head);
+    // deleteAtTail(head);
+    
+    // cout << "length of LL is: " << ComputeIterativeLength(head) << endl;
+    // cout << "length of LL is: " << ComputeRecursiveLength(head) << endl;
+    
     printListNode(head);
-
-
+    // SearchLinkedListIteratively(head, 100) ? cout << "found" << endl : cout << "not found";
+    // SearchLinkedListRecursively(head, 0) ? cout << "found" << endl : cout << "not found";
+    
+    head = ReverseLinkedListRecursive(head);
+    printListNode(head);
 
     return 0;
 }
