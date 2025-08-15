@@ -178,6 +178,24 @@ ListNode* ReverseLinkedListRecursive(ListNode* head){
     
 }
 
+ListNode* KthNodeFromEnd(ListNode* head, int index){
+    ListNode* slow = head;
+    ListNode* fast = head;
+    
+    int k = 1;
+    while( k <= index){
+        fast = fast->next;
+        k++;
+    }
+
+    while( fast != NULL){
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    return slow;
+}
+
 ListNode* middleOfList(ListNode* head){
     if(head == NULL) return NULL;
 
@@ -231,19 +249,23 @@ int main(){
     
     // head = ReverseLinkedListRecursive(head);
 
+    //kth node from the end of linked list
+    ListNode* k = KthNodeFromEnd(head,2);
+    cout << "kth node: "<< k->data << endl;
+
 
     // find middle of linked list
-    ListNode* middle =  middleOfList(head);
+    // ListNode* middle =  middleOfList(head);
 
-    if(middle){
-        cout << "middle of LL is: " << middle->data << endl;
-    }else {
-        cout << "no middle node found" << endl;
-    }
+    // if(middle){
+    //     cout << "middle of LL is: " << middle->data << endl;
+    // }else {
+    //     cout << "no middle node found" << endl;
+    // }
 
     //delete middle of linked list
-    head = deleteMiddleOfList(head);
-    printLinkedList(head);
+    // head = deleteMiddleOfList(head);
+    // printLinkedList(head);
 
     return 0;
 }
