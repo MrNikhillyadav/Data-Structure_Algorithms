@@ -13,15 +13,13 @@ class ListNode {
         }
 };
 
-void printListNode(ListNode* head){
-
+void printLinkedList(ListNode* head){
     ListNode* temp = head;
-
     while(temp != NULL){
         cout << temp -> data << " " ;
         temp = temp -> next;
     }
-    cout << endl;
+    cout  << "->NULL" << endl;
 }
 
 void insertAtHead( ListNode*& head, int data){
@@ -163,7 +161,7 @@ bool SearchLinkedListRecursively(ListNode* head, int target){
     }
 }
 
-ListNode* ReverseLinkedListRecursive(ListNode* head){`
+ListNode* ReverseLinkedListRecursive(ListNode* head){
     if(head == NULL){
         return head;
     }
@@ -180,11 +178,38 @@ ListNode* ReverseLinkedListRecursive(ListNode* head){`
     
 }
 
-int main(){
-    // compute length of ll iteratively and recursively
-    // search the linkedlist iteratively or recursively
-    // reverse the linkedlist iteratively or recursively
+ListNode* middleOfList(ListNode* head){
+    if(head == NULL) return NULL;
 
+    ListNode* slow = head;
+    ListNode* fast = head;
+
+    while( fast != NULL &&  fast -> next != NULL){
+        slow = slow->next;
+        fast = fast -> next -> next;
+    }
+    return slow;
+}
+
+ListNode* deleteMiddleOfList(ListNode* head){
+    if(head == NULL) return head;
+
+    ListNode* slow = head;
+    ListNode* fast = head;
+    ListNode* prev = nullptr;
+
+    while( fast!= NULL &&  fast -> next!= NULL){
+        prev = slow;
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+
+    prev -> next = slow -> next;
+    return head;
+}
+
+
+int main(){
     ListNode* head = new ListNode(1);
     head -> next =  new ListNode(2);
     head -> next-> next =  new ListNode(3);
@@ -199,12 +224,26 @@ int main(){
     // cout << "length of LL is: " << ComputeIterativeLength(head) << endl;
     // cout << "length of LL is: " << ComputeRecursiveLength(head) << endl;
     
-    printListNode(head);
+    printLinkedList(head);
     // SearchLinkedListIteratively(head, 100) ? cout << "found" << endl : cout << "not found";
     // SearchLinkedListRecursively(head, 0) ? cout << "found" << endl : cout << "not found";
     
-    head = ReverseLinkedListRecursive(head);
-    printListNode(head);
+    
+    // head = ReverseLinkedListRecursive(head);
+
+
+    // find middle of linked list
+    ListNode* middle =  middleOfList(head);
+
+    if(middle){
+        cout << "middle of LL is: " << middle->data << endl;
+    }else {
+        cout << "no middle node found" << endl;
+    }
+
+    //delete middle of linked list
+    head = deleteMiddleOfList(head);
+    printLinkedList(head);
 
     return 0;
 }
