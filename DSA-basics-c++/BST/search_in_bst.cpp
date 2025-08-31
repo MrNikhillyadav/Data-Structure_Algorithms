@@ -14,7 +14,6 @@ class TreeNode {
         }
 };
 
-//search
 bool search(TreeNode* root, int key){
     if(root == NULL) return false;
 
