@@ -15,7 +15,6 @@ class TreeNode {
 };
 
 int height(TreeNode* root){
-    
     //base
     if(root == NULL) 
     return 0;
@@ -44,6 +43,7 @@ void printKthLevel(TreeNode* root, int k){
 }
 
 void printLevelOrder(TreeNode* root){
+    //base case
     if(root == NULL) return;
 
     int H = height(root);

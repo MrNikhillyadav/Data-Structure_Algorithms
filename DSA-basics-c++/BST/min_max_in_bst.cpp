@@ -16,6 +16,7 @@ class TreeNode {
 
 TreeNode* findMinimum(TreeNode* root){
     TreeNode* cur = root;
+
     while(cur -> left != NULL){
         cur = cur->left;
     }
@@ -25,6 +26,7 @@ TreeNode* findMinimum(TreeNode* root){
 
 TreeNode* findMaximum(TreeNode* root){
     TreeNode* cur = root;
+    
     while(cur -> right != NULL){
         cur = cur->right;
     }
