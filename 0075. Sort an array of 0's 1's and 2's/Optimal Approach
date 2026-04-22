@@ -26,3 +26,21 @@ public:
     }
         
 };
+
+/*
+    Core Idea (3 Regions)
+
+    - We divide array into 4 parts:
+
+        [ 0s | 1s | unknown | 2s ]
+          ↑      ↑      ↑      ↑
+          low    mid           high
+
+    Deep Intuition (What interviewer checks)
+
+   - You maintain an invariant:
+        [0 → low-1]    → all 0s 
+        [low → mid-1]  → all 1s 
+        [mid → high]   → unknown 
+        [high+1 → end] → all 2s 
+*/
