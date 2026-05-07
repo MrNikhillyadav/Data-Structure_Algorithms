@@ -14,7 +14,7 @@ public:
        
             for(int i=0; i< nums.size(); i++){
                 if(nums[i] != 0){
-                    arr[j] = nums[i];//Note:Aise copy kr skte h,kyuki return type vector nahi h.
+                    arr[j] = nums[i];     //Note:Aise copy kr skte h,kyuki return type vector nahi h.
                     j++;
                 }
             }
@@ -46,7 +46,6 @@ public:
 // };
 
 
-//When return type is not void, its vector<int>:
 
 // class Solution {
 // public:
@@ -61,7 +60,6 @@ public:
 //             }
 //         }
 
-//         // Fill the remaining space in 'arr' with zeros
 
 //         int zerosToAdd = n - arr.size();
 //         for (int i = 0; i < zerosToAdd; i++) {
